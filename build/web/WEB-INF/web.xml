@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>ServletAdaptor</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>HelloWorld.ApplicationConfig</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletAdaptor</servlet-name>
+        <url-pattern>/webresources/*</url-pattern>
+    </servlet-mapping>
+    <context-param>
+        <description>Database Driver</description>
+        <param-name>DB_DRIVER</param-name>
+        <param-value>com.mysql.jdbc.Driver</param-value>
+    </context-param>
+    <context-param>
+        <description>Database URL</description>
+        <param-name>DB_URL</param-name>
+        <param-value>jdbc:mysql://localhost/codester</param-value>
+    </context-param>
+    <context-param>
+        <description>Database User</description>
+        <param-name>DB_USER</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <description>Database Password</description>
+        <param-name>DB_PASSWORD</param-name>
+        <param-value/>
+    </context-param>
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
